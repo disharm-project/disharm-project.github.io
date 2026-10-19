@@ -66,16 +66,16 @@
 
     <section class="section">
       <div class="wrap">
-        <article class="hs-post__body">
-<p>Sorry in advance, if it&#x27;s wrong place, but I haven&#x27;t found better. I&#x27;ve app written in Go where I try to make bulk load to ES. My code looks similar to: sess. SessionIndexName contains session which comes from mapping: PUT session { &quot;mappings&quot;: { &quot;sess&quot;: { &quot;properties&quot;: {... Final call is here: resp, err := c.client. Do(req) if err != nil {... err return null, which means that everything is OK. resp in header has code &#x27;200 OK&#x27; which also states success. But there&#x27;s no success: doc is not visible under Dev Tool in Kibana. <mark data-sent="8">Call GET session/_search always returns: { &quot;took&quot;: 1, &quot;timed_out&quot;: false, &quot;_shards&quot;: { &quot;total&quot;: 5, &quot;successful&quot;: 5, &quot;skipped&quot;: 0, &quot;failed&quot;: 0 }, &quot;hits&quot;: { &quot;total&quot;: 0, &quot;max_score&quot;: null, &quot;hits&quot;: [] } } Calling curl --user xxx:yyy --insecure -H</mark> &quot;Content-Type: application/x-ndjson&quot; -XPOST https://localhost:9200/session/sess/_bulk?pretty --data-binary @test.json with doc in test.json file loads data properly to ES. Any tips what&#x27;s wrong? This topic was automatically closed 28 days after the last reply. New replies are no longer allowed. Powered by Discourse, best viewed with JavaScript enabled © 2020. All Rights Reserved - Elasticsearch</p>
-<p>Apache, Apache Lucene, Apache Hadoop, Hadoop, HDFS and the yellow elephant logo are trademarks of the Apache Software Foundation in the United States and/or other countries.</p>
-        </article>
         <nav class="hs-pager" aria-label="Post navigation">
           <a class="btn btn--ghost" href="06638.html">&larr; Previous</a>
           <a class="btn" href="../index.html">All posts</a>
           <a class="btn btn--ghost" href="../random.html?from=6639">Random post</a>
           <a class="btn btn--ghost" href="06640.html">Next &rarr;</a>
         </nav>
+        <article class="hs-post__body">
+<p>Sorry in advance, if it&#x27;s wrong place, but I haven&#x27;t found better. I&#x27;ve app written in Go where I try to make bulk load to ES. My code looks similar to: sess. SessionIndexName contains session which comes from mapping: PUT session { &quot;mappings&quot;: { &quot;sess&quot;: { &quot;properties&quot;: {... Final call is here: resp, err := c.client. Do(req) if err != nil {... err return null, which means that everything is OK. resp in header has code &#x27;200 OK&#x27; which also states success. But there&#x27;s no success: doc is not visible under Dev Tool in Kibana. <mark data-sent="8">Call GET session/_search always returns: { &quot;took&quot;: 1, &quot;timed_out&quot;: false, &quot;_shards&quot;: { &quot;total&quot;: 5, &quot;successful&quot;: 5, &quot;skipped&quot;: 0, &quot;failed&quot;: 0 }, &quot;hits&quot;: { &quot;total&quot;: 0, &quot;max_score&quot;: null, &quot;hits&quot;: [] } } Calling curl --user xxx:yyy --insecure -H</mark> &quot;Content-Type: application/x-ndjson&quot; -XPOST https://localhost:9200/session/sess/_bulk?pretty --data-binary @test.json with doc in test.json file loads data properly to ES. Any tips what&#x27;s wrong? This topic was automatically closed 28 days after the last reply. New replies are no longer allowed. Powered by Discourse, best viewed with JavaScript enabled © 2020. All Rights Reserved - Elasticsearch</p>
+<p>Apache, Apache Lucene, Apache Hadoop, Hadoop, HDFS and the yellow elephant logo are trademarks of the Apache Software Foundation in the United States and/or other countries.</p>
+        </article>
       </div>
     </section>
   </main>

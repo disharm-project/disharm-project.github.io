@@ -66,17 +66,17 @@
 
     <section class="section">
       <div class="wrap">
-        <article class="hs-post__body">
-<p>Public signup for this instance is disabled. Go to our Self serve sign up page to request an account. Solr 4.2 on Linux with JBoss 7.1.1, JDK 1.7 the ReplicationHandler (and the replication admin UI screen) report the index version &amp; gen for the master based on what commit point is currently open for searching – but this is not necessarily the most recent commit point available for replication. <mark data-sent="3">Thus, it can appear that a slave has &quot;gotten ahead&quot; of the master, if there are &quot;empty commits&quot; (because of reader reopening shotcuts) or commits using openSearcher=false.</mark> We need to add additional data to help make it clear there is no actual problem in this sitation. <mark data-sent="5">Summary of original bug report.. Index and Gen number on Slave is higher than master.</mark> If you apply commit on master with no pending docs then the commit time stamp and gen is incremented. When Slaves polls master for replication it see the index version difference and starts replicating but all files are skipped. <mark data-sent="8">On Admin UI (on Slaves) the version number displayed for master is old where as for slave is the latest which is higher than master.</mark> Below is the response from master (/replication?command=details) where i see two different Version an Gen numbers. This creates confusion of having version out of sync, though its not. ...</p>
-<p>SOLR-4622 deprecate usage of DEFAULT_HOST_CONTEXT and DEFAULT_HOST_PORT</p>
-<p>Powered by a free Atlassian Jira open source license for Apache Software Foundation. Try Jira - bug tracking software for your team.</p>
-        </article>
         <nav class="hs-pager" aria-label="Post navigation">
           <a class="btn btn--ghost" href="04832.html">&larr; Previous</a>
           <a class="btn" href="../index.html">All posts</a>
           <a class="btn btn--ghost" href="../random.html?from=4833">Random post</a>
           <a class="btn btn--ghost" href="04834.html">Next &rarr;</a>
         </nav>
+        <article class="hs-post__body">
+<p>Public signup for this instance is disabled. Go to our Self serve sign up page to request an account. Solr 4.2 on Linux with JBoss 7.1.1, JDK 1.7 the ReplicationHandler (and the replication admin UI screen) report the index version &amp; gen for the master based on what commit point is currently open for searching – but this is not necessarily the most recent commit point available for replication. <mark data-sent="3">Thus, it can appear that a slave has &quot;gotten ahead&quot; of the master, if there are &quot;empty commits&quot; (because of reader reopening shotcuts) or commits using openSearcher=false.</mark> We need to add additional data to help make it clear there is no actual problem in this sitation. <mark data-sent="5">Summary of original bug report.. Index and Gen number on Slave is higher than master.</mark> If you apply commit on master with no pending docs then the commit time stamp and gen is incremented. When Slaves polls master for replication it see the index version difference and starts replicating but all files are skipped. <mark data-sent="8">On Admin UI (on Slaves) the version number displayed for master is old where as for slave is the latest which is higher than master.</mark> Below is the response from master (/replication?command=details) where i see two different Version an Gen numbers. This creates confusion of having version out of sync, though its not. ...</p>
+<p>SOLR-4622 deprecate usage of DEFAULT_HOST_CONTEXT and DEFAULT_HOST_PORT</p>
+<p>Powered by a free Atlassian Jira open source license for Apache Software Foundation. Try Jira - bug tracking software for your team.</p>
+        </article>
       </div>
     </section>
   </main>

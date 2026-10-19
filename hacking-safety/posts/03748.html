@@ -66,6 +66,12 @@
 
     <section class="section">
       <div class="wrap">
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="03746.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="../random.html?from=3748">Random post</a>
+          <a class="btn btn--ghost" href="03749.html">Next &rarr;</a>
+        </nav>
         <article class="hs-post__body">
 <p>Level 1 Level 2 Sign in to Community Learn more Sign in to view all badges Expand my Community achievements bar. Hi, When I run a query in Query Performance Tool, i am getting a RunTimeTraversalException in logs. I checked the query in the OAK Index Query generator, its suggested to create a Lucene index with node type nt:base and there is no properties indicated. I used the OOTB ntBaseLucene index as it also targeting same node typa nt:base and reindexed. Still the traversal exception is not fixed. Please suggest. org.apache.jackrabbit.oak.query. RuntimeNodeTraversalException: The query read or traversed more than 3000000 nodes. To avoid affecting other tasks, processing was stopped.at org.apache.jackrabbit.oak.query.FilterIterators.checkReadLimit(FilterIterators.java:70) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.plugins.index.Cursors$TraversingCursor.fetchNext(Cursors.java:341) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.plugins.index.Cursors$TraversingCursor.next(Cursors.java:320) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.query.ast.SelectorImpl.nextInternal(SelectorImpl.java:520) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.query.ast. SelectorImpl.next(SelectorImpl.java:508) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.query. QueryImpl$RowIterator.fetchNext(QueryImpl.java:876) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.query.QueryImpl$RowIterator.hasNext(QueryImpl.java:903) [org.apache.jackrabbit.oak-core:1.22.16]at org.apache.jackrabbit.oak.jcr.query. QueryResultImpl$4.fetch(QueryResultImpl.java:186) [org.apache.jackrabbit.oak-jcr:1.22.16]at org.apache.jackrabbit.oak.jcr.query.QueryResultImpl$4.&lt;init&gt;(QueryResultImpl.java:181) [org.apache.jackrabbit.oak-jcr:1.22.16]at org.apache.jackr Views Replies Total Likes</p>
 <p>Hi @Beaula123 Could you please share your requirement for the query. with nt:base type, it will parse all the node. you need to optimize your query first. Views Replies Total Likes</p>
@@ -77,12 +83,6 @@
 <p>@arunpatidar , @EstebanBustamante , We are still facing the issues with the traversal queries and these are causing the high CPU utilization in the publishers. The see below WARN messages in the publisher logs and these causing the pipeline failure in the performance testing. Please suggest a quick fix for this. Views Replies Total Likes</p>
 <p>@Beaula123 , you didn&#x27;t provide the information that @arunpatidar has requested for guiding you. Essentially, the issue you are facing arises because this query is not performant. Typically, you would optimize your query by specifying limits such as changing the type of node being queried, limiting the path, limiting the properties, etc. Additionally, adding an index is crucial; using the OAK Index Query generator is not a silver bullet. If this is an out-of-the-box query, consulting Adobe directly by raising a support ticket is also a valid option. Again, since this information wasn&#x27;t provided as Arun requested, it&#x27;s difficult to provide further advice. Hope this helps. <mark data-sent="43">Views Replies Total Likes Views Likes Replies Views Likes Replies Views Likes Replies Views Likes Replies Views Likes Replies</mark></p>
         </article>
-        <nav class="hs-pager" aria-label="Post navigation">
-          <a class="btn btn--ghost" href="03746.html">&larr; Previous</a>
-          <a class="btn" href="../index.html">All posts</a>
-          <a class="btn btn--ghost" href="../random.html?from=3748">Random post</a>
-          <a class="btn btn--ghost" href="03749.html">Next &rarr;</a>
-        </nav>
       </div>
     </section>
   </main>

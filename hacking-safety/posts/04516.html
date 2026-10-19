@@ -66,6 +66,12 @@
 
     <section class="section">
       <div class="wrap">
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="04515.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="../random.html?from=4516">Random post</a>
+          <a class="btn btn--ghost" href="04517.html">Next &rarr;</a>
+        </nav>
         <article class="hs-post__body">
 <p>In the previous article, we finished setting up the kernel environment. Now let’s try to write a system call to modify or read the nice value of a given process and return the latest nice value and priority prio of the process. This is a successful method and seems to be the one most people use First, go to include/linux/syscalls.h and add the following function prototype</p>
 <p>After that, go to arch/x86/entry/syscalls/syscall_32.tbl and arch/x86/entry/syscalls/syscall_64.tbl respectively and add the system call number</p>
@@ -80,12 +86,6 @@
 <p>Probably something went wrong when passing parameters? find_get_pid(int nr) pid_task() asmlinkageInform the compiler to extract the function parameters from the stack only, not from the registers, because the system has already pressed the parameter values passed through the registers into the kernel stack before executing the service routine set_user_nice() backup: Syscalls and problems encountered http://aslin.site/2022/03/09/backup-Syscalls-and-problems-encountered/ ACce1er4t0r 2022-03-09 2023-04-22</p>
 <p>ACce1er4t0r CTFer | Student UF@CISE Posts 11 Categories 0 Tags 0 2022-12-18 Automated deploying Hexo blogs by Github Actions 2022-03-17 PWN Learning: CSAW 2017 Quals - pilot 2022-03-17 Programming Linux Character Driver 2022-03-09 Programming Linux Modules 2022-03-09 backup: PAT © 2023 ACce1er4t0r Powered by Hexo &amp; Icarus</p>
         </article>
-        <nav class="hs-pager" aria-label="Post navigation">
-          <a class="btn btn--ghost" href="04515.html">&larr; Previous</a>
-          <a class="btn" href="../index.html">All posts</a>
-          <a class="btn btn--ghost" href="../random.html?from=4516">Random post</a>
-          <a class="btn btn--ghost" href="04517.html">Next &rarr;</a>
-        </nav>
       </div>
     </section>
   </main>

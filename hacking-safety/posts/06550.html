@@ -66,6 +66,12 @@
 
     <section class="section">
       <div class="wrap">
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="06549.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="../random.html?from=6550">Random post</a>
+          <a class="btn btn--ghost" href="06551.html">Next &rarr;</a>
+        </nav>
         <article class="hs-post__body">
 <p><mark data-sent="0">In this first section of the fourteenth part of board support package on STM32F411, we shall develop the initialization function of I2C and build I2C bus scanner to get the address of the connected slave devices.</mark> In this guide, we shall cover the following:</p>
 <p>Before we start developing the header file, take a look at this guide (here) to find more information about about I2C and how to configure it from scratch. We start off with creating new header file with name of i2c_bsp.h file. Within the header, include the header file guard: Within the header guard, include the following header files: Since STM32F411 features 3 I2Cs bus, we shall use micros to enable clock access to each peripheral: Since I2C can operate on either, standard speed (100KHz) or fast mode (400KHz), we shall create enum for the following states as following: Since there is two type of duty mode in fast mode, t low /t high = 2 or t low /t high = 16/9. Hence, we shall create enum to handle both cases: For status of the I2C, we shall create enum to handle three states as following: This will become handy in the next section of the guide. Create new data structure to configure the I2C peripheral: The parameters as following: Declare the following function: This function shall initialize the I2C peripheral and take I2C Typedef struct for which I2C and config struct to handle the configuration and returns nothing. Also, declare the following function: This will scan the I2C bus for the connected peripheral and takes I2C_Typedef as argument and return nothing. Hence, the entire header file as following:</p>
@@ -76,12 +82,6 @@
 <p>In order to see the results, you need to configure SWO as shown in this guide here. <mark data-sent="14">You should get the addresses of attached slave devices (1 in this case):</mark></p>
 <p><mark data-sent="14">Happy coding ðŸ™‚ Your email address will not be published.</mark> Required fields are marked * Save my name, email, and website in this browser for the next time I comment. Δ Â All Rights Reserved</p>
         </article>
-        <nav class="hs-pager" aria-label="Post navigation">
-          <a class="btn btn--ghost" href="06549.html">&larr; Previous</a>
-          <a class="btn" href="../index.html">All posts</a>
-          <a class="btn btn--ghost" href="../random.html?from=6550">Random post</a>
-          <a class="btn btn--ghost" href="06551.html">Next &rarr;</a>
-        </nav>
       </div>
     </section>
   </main>

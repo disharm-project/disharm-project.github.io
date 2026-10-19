@@ -66,6 +66,12 @@
 
     <section class="section">
       <div class="wrap">
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="05289.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="../random.html?from=5291">Random post</a>
+          <a class="btn btn--ghost" href="05292.html">Next &rarr;</a>
+        </nav>
         <article class="hs-post__body">
 <p>In a previous post, I shared how to install PostgreSQL 13 on Ubuntu 20.4 which you will get a workable data cluster instance of PostgreSQL. In the real world, the databases will be managing in an architecture that takes consideration of high availability so that your business can be operated 24/7 without worrying about downtime or data loss. <mark data-sent="2">There are two popular approaches usually use, master-slave and multi-master databases.</mark> The term &quot;High Availability&quot; is the ability of databases server to operate continuously without any problem or can recover as quickly as possible in case of interruption or downtime. In this post, we are going to implement the master and slaves approach by using repmgr as a tool to manage the cluster. Repmgr is a product of 2ndQuadrant for managing replication and failover in a cluster of PostgreSQL servers. Repmgr provides built-in hot-standby capabilities with tools to set up standby servers, monitor replication, perform administrative tasks such as failover or manual switchover operations. In this experiment, we are using only one database server which running 3 instances of PostgreSQL in different ports. <mark data-sent="8">Master is running localhost port 5432, Slave or standby 1 will be run in localhost port 5433, and standby 2 runs in localhost port 5434.</mark> In practice, you should have 3 different database servers which running 3 different PostgreSQL instances so that when one server is down you can switch over to use the other two running database servers. OK, LET&#x27;S START... <mark data-sent="11">STEP 1: Prepare Directory for Slave 1 and 2</mark></p>
 <p><mark data-sent="11">Master Slaves Architecture Figure</mark></p>
@@ -77,12 +83,6 @@
 <p>Conclusion Now we have a repmgr cluster that manages three PostgreSQL instances, Master, Standby 1, and Standby 2. By adding servers or instances into the repmgr cluster, it is easy to perform tasks such as promote standby, switch over, auto-failover, and rejoin to any nodes inside the cluster. In the next post, we will introduce you to some of the tasks you can execute using the repmgr command. STAY TUNE and THANK YOU!!! Find Us @ Facebook Telegram Twitter LinkedIn</p>
 <p>Software Engineer &amp; Project Manager. I am willing to share IT knowledge, technical experiences and investment to financial freedom. Feel free to ask and contact me. Nest Code aims to be the knowledge hub of technologies, coding tips, and programming tutorial sharing.</p>
         </article>
-        <nav class="hs-pager" aria-label="Post navigation">
-          <a class="btn btn--ghost" href="05290.html">&larr; Previous</a>
-          <a class="btn" href="../index.html">All posts</a>
-          <a class="btn btn--ghost" href="../random.html?from=5291">Random post</a>
-          <a class="btn btn--ghost" href="05292.html">Next &rarr;</a>
-        </nav>
       </div>
     </section>
   </main>
