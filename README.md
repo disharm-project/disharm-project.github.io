@@ -16,6 +16,8 @@ repository directly.
 - `assets/css/style.css` — all styling.
 - `assets/js/main.js` — mobile nav toggle + active-section highlighting.
 - `assets/img/` — favicon and any images; add funder/partner logos here.
+- `hacking-safety/` — generated pages for the hacking safety dataset; don't edit by
+  hand, regenerate with the scripts in `scripts/hacking-safety/` (see its README).
 
 ## Editing content
 
