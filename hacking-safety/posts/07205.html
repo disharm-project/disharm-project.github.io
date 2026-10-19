@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to throw cell click event of qtable widget — DISHARM</title>
+  <meta name="description" content="Post 7205 of the hacking safety dataset, from forum.qt.io.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="site-nav__brand" href="../../index.html">DIS<span>HARM</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#presentation">About the project</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../press.html">Press</a></li>
+          <li><a href="../../hacking-safety/index.html" aria-current="page">Hacking safety</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-nav__social">
+        <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+        </a>
+        <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+        </a>
+        <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero hs-post">
+      <div class="wrap">
+        <span class="page-hero__kicker"><a href="../index.html">Hacking safety</a> &middot; Post 7205</span>
+        <h1 class="page-hero__title">How to throw cell click event of qtable widget</h1>
+        <p class="hs-post__source">forum.qt.io &middot;
+          <a href="https://forum.qt.io/topic/10597/how-to-throw-cell-click-event-of-qtable-widget" target="_blank" rel="noopener nofollow">https://forum.qt.io/topic/10597/how-to-throw-cell-click-event-of-qtable-widget</a></p>
+        <p class="hs-post__stats"><span class="hs-chip">3 of 42 sentences flagged</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <article class="hs-post__body">
+<p>Your browser does not seem to support JavaScript. As a result, your viewing experience will be diminished, and you have been placed in read-only mode. Please download a browser that supports JavaScript, or enable it if it&#x27;s disabled (i.e. NoScript). Hi All I have created one QTableWidget. I have one function in which I am performing some operations. When this operation is successfull I want the CellClick event on first row of Table. How to do this? Please rephrase your question. There is no CellClick event that can be on a row or something like that. Hi Andre I mean to say cell click for (0,0)Cell in the Table widget. Do I understand correctly: You want to have some function like this: @ &lt;whatever type&gt; foo() { // do some work here // simulate a mouse click event on a specific cell of a table // do something else } @ Nokia Certified Qt Specialist. <mark data-sent="11">Programming Is Like Sex: One mistake and you have to support it for the rest of your life.</mark> (Michael Sinz) Yes Gerolf. What about setCurrentItem()? http://www.catb.org/~esr/faqs/smart-questions.html Why do you want to emulate a click? to set the input focus? to start editing a cell? What is the use case? Nokia Certified Qt Specialist. <mark data-sent="19">Programming Is Like Sex: One mistake and you have to support it for the rest of your life.</mark> (Michael Sinz) Hi Gerolf On the click of the particular cell I am reading the data of that row. So By default i want to read the data of 1st row. code to read the data is implemented in the SLOT of cell click. Hi, I I did something similar with QTableWidget and I used cell clicked signal (http://doc.qt.nokia.com/latest/qtablewidget.html) @void cellClicked ( int row, int column )@ if I understand you correctly you want to trigger the signal for the a particular cell (in the first post you said row, it may have confused some) if you have connected the signal and slot, you should be able to call the slot with row 1 and column 1. I have something like this @void VenVisReservaciones::on_tblReservaciones_cellClicked(int row, int column){ .. }@ So if I finish processing data I do something like this @ on_tblReservaciones_cellClicked(1,1); @ If you want to click a cell and then you want to read the first cell of that row, then you can do something like this: @void VenVisReservaciones::on_tblReservaciones_cellClicked(int row, int column){ process(ui-&gt;tblReservaciones-&gt;item(1,row)-&gt;text()); .. } process(QString text){ .. } @ Hope it helps you! Hi IKtwo Thanks it worked. But now I also want the focus to be on 1st row[i.e it should show as 1st row is selected] How to do that. I&#x27;m not sure if a Cell has a method called setFocus(), you can try it, something like @ui-&gt;table-&gt;item(X,Y)-&gt;setFocus();@ If that doesn&#x27;t work maybe @setSelected(true)@ Hi Iktwo setSelected(true) is working but it is not removing selection of previous row. Here user gets a feel of two are selected . Sorry for that, maybe @void setCurrentCell ( int row, int column )@ So putting it together: setFocus for the table setCurrentCell() in combination should set the current cursor position to the specified cell. If you want to clean any selection before, do it via the selectionModel. Nokia Certified Qt Specialist. <mark data-sent="35">Programming Is Like Sex: One mistake and you have to support it for the rest of your life.</mark> (Michael Sinz) Hi Gerolf Its not working,I m doing something like this @ on_AE_Tablecell_Clicked(0,0);//This is the slot i want to be called ui.tableWidget_AE-&gt;setCurrentCell(0,0,QItemSelectionModel::Rows); @ By doing this it only setting the focus to (0,0) item but i want to show that complete row as blue and other previous selection should be removed. selectRow(0) is the slot to use. You could have found yourself very easily if you had scanned through the fine API documentation of [[Doc:QTableWidget]] and its base classes [[Doc:QTableView]] and [[Doc:QAbstractItemView]]. Finding that slot with a quick search in the browser is a no brainer. http://www.catb.org/~esr/faqs/smart-questions.html</p>
+        </article>
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="07204.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="07206.html">Next &rarr;</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-about">
+          <p class="footer-about__brand">DISHARM</p>
+          <p>
+            [Footer text placeholder — a couple of sentences about the project, its host institution, and how to
+            get in touch. Replace with real text.]
+          </p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+            </a>
+            <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+            </a>
+            <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav__group">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../about.html">About</a></li>
+              <li><a href="../../publications.html">Publications</a></li>
+              <li><a href="../../press.html">Press</a></li>
+              <li><a href="../../hacking-safety/index.html">Hacking safety</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__group">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@REPLACE_ME.org">contact@REPLACE_ME.org</a></li>
+              <li>[Department / institution]</li>
+              <li>[City, country]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-logos">
+        <p class="footer-logos__label">Funded / supported by</p>
+        <div class="footer-logos__row">
+          <div class="footer-logo-slot">Funder logo</div>
+          <div class="footer-logo-slot">Partner logo</div>
+          <div class="footer-logo-slot">Host institution logo</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> DISHARM project. All rights reserved.</p>
+        <p><a href="../../about.html">About this site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing high availability database cluster with repmgr postgresql 13 repmgr 52 — DISHARM</title>
+  <meta name="description" content="Post 5291 of the hacking safety dataset, from nestcode.co.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="site-nav__brand" href="../../index.html">DIS<span>HARM</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#presentation">About the project</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../press.html">Press</a></li>
+          <li><a href="../../hacking-safety/index.html" aria-current="page">Hacking safety</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-nav__social">
+        <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+        </a>
+        <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+        </a>
+        <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero hs-post">
+      <div class="wrap">
+        <span class="page-hero__kicker"><a href="../index.html">Hacking safety</a> &middot; Post 5291</span>
+        <h1 class="page-hero__title">Managing high availability database cluster with repmgr postgresql 13 repmgr 52</h1>
+        <p class="hs-post__source">nestcode.co &middot;
+          <a href="https://nestcode.co/en/blog/managing-high-availability-database-cluster-with-repmgr-postgresql-13-repmgr-52" target="_blank" rel="noopener nofollow">https://nestcode.co/en/blog/managing-high-availability-database-cluster-with-repmgr-postgresql-13-repmgr-52</a></p>
+        <p class="hs-post__stats"><span class="hs-chip">3 of 22 sentences flagged</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <article class="hs-post__body">
+<p>In a previous post, I shared how to install PostgreSQL 13 on Ubuntu 20.4 which you will get a workable data cluster instance of PostgreSQL. In the real world, the databases will be managing in an architecture that takes consideration of high availability so that your business can be operated 24/7 without worrying about downtime or data loss. <mark data-sent="2">There are two popular approaches usually use, master-slave and multi-master databases.</mark> The term &quot;High Availability&quot; is the ability of databases server to operate continuously without any problem or can recover as quickly as possible in case of interruption or downtime. In this post, we are going to implement the master and slaves approach by using repmgr as a tool to manage the cluster. Repmgr is a product of 2ndQuadrant for managing replication and failover in a cluster of PostgreSQL servers. Repmgr provides built-in hot-standby capabilities with tools to set up standby servers, monitor replication, perform administrative tasks such as failover or manual switchover operations. In this experiment, we are using only one database server which running 3 instances of PostgreSQL in different ports. <mark data-sent="8">Master is running localhost port 5432, Slave or standby 1 will be run in localhost port 5433, and standby 2 runs in localhost port 5434.</mark> In practice, you should have 3 different database servers which running 3 different PostgreSQL instances so that when one server is down you can switch over to use the other two running database servers. OK, LET&#x27;S START... <mark data-sent="11">STEP 1: Prepare Directory for Slave 1 and 2</mark></p>
+<p><mark data-sent="11">Master Slaves Architecture Figure</mark></p>
+<p><mark data-sent="11">STEP 2: Prerequisite before Setup Repmgr 5.2 Before you install repmgr 5.2 from the source, you have to config the parameter setting in PostgreSQL for cluster compatibility.</mark> This is the configuration of Master (host: localhost port: 5432 data directory: /data01) STEP 3: Installing Repmgr 5.2</p>
+<p>The above commands will get you 3 repmgr config files for the Master, Standby 1 and 2</p>
+<p>STEP 4: Configure Master (host: localhost port: 5432)</p>
+<p>STEP 5: Configure Standby 1 (host: localhost port: 5433)</p>
+<p>STEP 6: Configure Standby 2 (host: localhost port: 5434)</p>
+<p>Conclusion Now we have a repmgr cluster that manages three PostgreSQL instances, Master, Standby 1, and Standby 2. By adding servers or instances into the repmgr cluster, it is easy to perform tasks such as promote standby, switch over, auto-failover, and rejoin to any nodes inside the cluster. In the next post, we will introduce you to some of the tasks you can execute using the repmgr command. STAY TUNE and THANK YOU!!! Find Us @ Facebook Telegram Twitter LinkedIn</p>
+<p>Software Engineer &amp; Project Manager. I am willing to share IT knowledge, technical experiences and investment to financial freedom. Feel free to ask and contact me. Nest Code aims to be the knowledge hub of technologies, coding tips, and programming tutorial sharing.</p>
+        </article>
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="05290.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="05292.html">Next &rarr;</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-about">
+          <p class="footer-about__brand">DISHARM</p>
+          <p>
+            [Footer text placeholder — a couple of sentences about the project, its host institution, and how to
+            get in touch. Replace with real text.]
+          </p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+            </a>
+            <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+            </a>
+            <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav__group">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../about.html">About</a></li>
+              <li><a href="../../publications.html">Publications</a></li>
+              <li><a href="../../press.html">Press</a></li>
+              <li><a href="../../hacking-safety/index.html">Hacking safety</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__group">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@REPLACE_ME.org">contact@REPLACE_ME.org</a></li>
+              <li>[Department / institution]</li>
+              <li>[City, country]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-logos">
+        <p class="footer-logos__label">Funded / supported by</p>
+        <div class="footer-logos__row">
+          <div class="footer-logo-slot">Funder logo</div>
+          <div class="footer-logo-slot">Partner logo</div>
+          <div class="footer-logo-slot">Host institution logo</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> DISHARM project. All rights reserved.</p>
+        <p><a href="../../about.html">About this site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

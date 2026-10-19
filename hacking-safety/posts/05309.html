@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature sensor encoding — DISHARM</title>
+  <meta name="description" content="Post 5309 of the hacking safety dataset, from forum.velbus.eu.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="site-nav__brand" href="../../index.html">DIS<span>HARM</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#presentation">About the project</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../press.html">Press</a></li>
+          <li><a href="../../hacking-safety/index.html" aria-current="page">Hacking safety</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-nav__social">
+        <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+        </a>
+        <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+        </a>
+        <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero hs-post">
+      <div class="wrap">
+        <span class="page-hero__kicker"><a href="../index.html">Hacking safety</a> &middot; Post 5309</span>
+        <h1 class="page-hero__title">Temperature sensor encoding</h1>
+        <p class="hs-post__source">forum.velbus.eu &middot;
+          <a href="https://forum.velbus.eu/t/temperature-sensor-encoding/17461" target="_blank" rel="noopener nofollow">https://forum.velbus.eu/t/temperature-sensor-encoding/17461</a></p>
+        <p class="hs-post__stats"><span class="hs-chip">2 of 50 sentences flagged</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <article class="hs-post__body">
+<p>I’m trying to integrate some custom AC control software with Velbus. I see that the current temperature is sent onto the bus for many nodes with a built in sensor, such as the VMBGP4-20. Typically this will be by sending a message of type 0xE6 “COMMAND_SENSOR_TEMPERATURE” The module protocol shows Databytes 2 and 3 transmitting the current temperature in two’s complement format. [This is effectively the whole number of the current temp (in degrees C) is divided by the resolution (0.0625 degrees).] There is a table showing the two bytes for various sample temps. There are a couple of typos which I found using the calculator at Two&#x27;s (2s) Complement Calculator to understand how this works. Let’s start with the positive values. The values for 0.5, 0.25, 0.125 and 0,0625 are just the binary format of the multiples of the resolution i.e. 8, 4, 2, and 1 - being shifted 5 bits to the left. They are not two’s complement and require not complex maths. The next value is the one shown for 63.5 - this is 1016 times the resolution. The binary version of this is 0b0011 1111 1000 , shift this 5 bits to the left gives 0111 1111 0000 0000 which is not what is in the table. Taking the value in the table “0111 1111 111x xxxx” and shifting 5 bits to the right gives 0b0011 1111 1111 which is decimal 1023. 1023 x 0.0625 = 63.9375 degrees - close but just enough to be misleading. The negative values are the twos complement of the multiple with the sign removed. So for -0.0625 this is -1, which becomes 1 and the two complement is 111 1111 1111. Shift this 5 bits to the left and the values line up with the table. The same sort of thing works for -0.125 (-2 times resolution), -0.25 (-4 times resolution). The value shown for -0.5 appears to be wrong. This is actually -8 times the resolution. The twos comp calculator shows 111 1111 1000 for 8. Shift this 5 bits to the left gives 0b 1111 1111 0000 0000. The value shown in the table is “1111 1110 000x xxxx” (flip the bits and shift it right and and one) it becomes 0b0001 0000 which is actually 16 times the resolution, or -1.0 degrees. For -55 (which is 880) the calculator shows 1001 0010 000. Shift this 5 bits to the left for 0b1001 0010 000x xxxx which is correct. I think the negative values could go as high as the positive with a transmitted value of “1000 0000 000x xxxx” which can be translated back to -1023 (x 0.0625) that gives -69.9375 degrees. Whether this would be of practical use apart from Arctic conditions is a moot point though <mark data-sent="27">Anyway I hope this helps people get their heads around how these temperature readings work (along with the small corrections required).</mark> Can you add the table to have all info in one place? I want to see where is the error. I’d expect this for binary representation of real numbers, 4 bits for after the dot. That’s a lot of number to compute and display. I’ve just worked around the limits. Here’s some code if you want to play around. Call it in a loop ? FWIW you don’t need to do any fancy operations for two’s complement computation on pretty much every contemporary machine. You can interpret the bytes as a signed 16-bit number which are internally represented as two’s complement, so the code ends up as: or in C: [EDIT: the code was wrong, see below for a fixed version] The shift and multiply can also be folded together into 0.001953125 but that hurts readability tad a bit too much (and the compilers will figure this out for you for the most part anyway.) The C version does not compile. And when I add additional parenthesis it returns incorrect values. “C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.” Can I ask to provide the code, compilation ready and the values that are incorrect? It will facilitate the discussion. Yeah, my bad, I wrote this ad-lib and didn’t test it out. Turns out the shift by 5 was not shifting with sign extension even though it was shifting a signed value. <mark data-sent="45">I blame the darned auto-conversions to int.</mark> Here’s the fixed code and a playbox: #include &lt;stdint.h&gt; #include &lt;stdio.h&gt;</p>
+<p>float parse_temperature(const uint8_t in[2]) { short wor But really just use something other than C… You can already see how my attempt to use it as a lingua franca has backfired… But really just use something other than C… You can already see how my attempt to use it as a lingua franca has backfired… Nice work and thanks. Un/Fortunately I’m doing this with an Arduino so C/C++ is what works at the moment. Powered by Discourse, best viewed with JavaScript enabled</p>
+        </article>
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="05308.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="05310.html">Next &rarr;</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-about">
+          <p class="footer-about__brand">DISHARM</p>
+          <p>
+            [Footer text placeholder — a couple of sentences about the project, its host institution, and how to
+            get in touch. Replace with real text.]
+          </p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+            </a>
+            <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+            </a>
+            <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav__group">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../about.html">About</a></li>
+              <li><a href="../../publications.html">Publications</a></li>
+              <li><a href="../../press.html">Press</a></li>
+              <li><a href="../../hacking-safety/index.html">Hacking safety</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__group">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@REPLACE_ME.org">contact@REPLACE_ME.org</a></li>
+              <li>[Department / institution]</li>
+              <li>[City, country]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-logos">
+        <p class="footer-logos__label">Funded / supported by</p>
+        <div class="footer-logos__row">
+          <div class="footer-logo-slot">Funder logo</div>
+          <div class="footer-logo-slot">Partner logo</div>
+          <div class="footer-logo-slot">Host institution logo</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> DISHARM project. All rights reserved.</p>
+        <p><a href="../../about.html">About this site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

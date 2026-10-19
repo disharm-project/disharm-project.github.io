@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to elasticsearch in laravel 1e34 — DISHARM</title>
+  <meta name="description" content="Post 1954 of the hacking safety dataset, from practicaldev-herokuapp-com.global.ssl.fastly.net.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="wrap">
+      <a class="site-nav__brand" href="../../index.html">DIS<span>HARM</span></a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__links">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../index.html#presentation">About the project</a></li>
+          <li><a href="../../publications.html">Publications</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../press.html">Press</a></li>
+          <li><a href="../../hacking-safety/index.html" aria-current="page">Hacking safety</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-nav__social">
+        <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+        </a>
+        <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+        </a>
+        <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero hs-post">
+      <div class="wrap">
+        <span class="page-hero__kicker"><a href="../index.html">Hacking safety</a> &middot; Post 1954</span>
+        <h1 class="page-hero__title">Introduction to elasticsearch in laravel 1e34</h1>
+        <p class="hs-post__source">practicaldev-herokuapp-com.global.ssl.fastly.net &middot;
+          <a href="https://practicaldev-herokuapp-com.global.ssl.fastly.net/devbalop/introduction-to-elasticsearch-in-laravel-1e34" target="_blank" rel="noopener nofollow">https://practicaldev-herokuapp-com.global.ssl.fastly.net/devbalop/introduction-to-elasticsearch-in-laravel-1e34</a></p>
+        <p class="hs-post__stats"><span class="hs-chip">1 of 27 sentences flagged</span></p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <article class="hs-post__body">
+<p>Posted on Jul 16</p>
+<p>Elasticsearch is a tool that helps you search and analyze large amounts of information very quickly. Imagine it as a super-fast librarian who can find exactly what you need from a huge collection of books in just a few seconds. When used with Laravel, Elasticsearch makes it easy to add advanced search features to your projects. This article will explain how to integrate Elasticsearch with Laravel, its advantages, disadvantages, and provide some examples of how to use it. Think of Elasticsearch as a search engine for websites and apps, similar to how Google works for the internet. Here’s a simple comparison: Just like Google can instantly give you results for any search query, Elasticsearch can do the same for the data in your website or app. It’s incredibly fast and can handle a lot of data at once, making it ideal for large websites or applications with lots of information. Elasticsearch is a distributed, RESTful search and analytics engine capable of addressing a growing number of use cases. As an open-source search engine, it is built on Apache Lucene and is known for its powerful and flexible search capabilities. Integrating Elasticsearch with Laravel, allows developers to implement advanced search functionalities efficiently. To integrate Elasticsearch with Laravel, we use Laravel Scout, a driver-based library for adding full-text search to Eloquent models, and the Elasticsearch driver for Laravel Scout. First, install Elasticsearch on your local machine or server. Follow the installation instructions from the Elasticsearch website. Run the following commands to install Laravel Scout and the Elasticsearch driver:</p>
+<p>Publish the Scout configuration file and set the driver to Elasticsearch:</p>
+<p>Update the .env file:</p>
+<p>Configure Elasticsearch in config/scout.php:</p>
+<p>To make a model searchable, add the Searchable trait to the model class. For example:</p>
+<p>Index your existing data using the scout:import command:</p>
+<p>Use the search method to perform search queries on your model:</p>
+<p>Here’s a simple search implementation in Laravel: Integrating Elasticsearch with Laravel provides powerful and flexible search capabilities that enhance the functionality of any application. Despite the complexity and resource requirements, the benefits of high performance, scalability, and real-time data handling make Elasticsearch a valuable tool for developers. By following the steps outlined above, you can efficiently implement Elasticsearch in your Laravel projects, providing users with a robust search experience. Templates let you quickly answer FAQs or store snippets for re-use. Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment&#x27;s permalink. Hide child comments as well</p>
+<p>Confirm</p>
+<p>For further actions, you may consider blocking this person and/or reporting abuse</p>
+<p>Mangabo Kolawole - Aug 12</p>
+<p>Rishabh Verma - Aug 12</p>
+<p>Vaibhav Acharya - Aug 12</p>
+<p>Valarie Rono - Aug 12</p>
+<p>Thank you to our Diamond Sponsor Neon for supporting our community. DEV Community — A constructive and inclusive social network for software developers. With you every step of your journey. Built on Forem — the open source software that powers DEV and other inclusive communities. Made with love and Ruby on Rails. DEV Community © 2016 - 2024. <mark data-sent="26">We&#x27;re a place where coders share, stay up-to-date and grow their careers.</mark></p>
+        </article>
+        <nav class="hs-pager" aria-label="Post navigation">
+          <a class="btn btn--ghost" href="01953.html">&larr; Previous</a>
+          <a class="btn" href="../index.html">All posts</a>
+          <a class="btn btn--ghost" href="01955.html">Next &rarr;</a>
+        </nav>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="footer-about">
+          <p class="footer-about__brand">DISHARM</p>
+          <p>
+            [Footer text placeholder — a couple of sentences about the project, its host institution, and how to
+            get in touch. Replace with real text.]
+          </p>
+          <div class="footer-social">
+            <a class="social-btn" href="https://www.linkedin.com/company/disharm-project" target="_blank" rel="noopener" aria-label="DISHARM on LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+            </a>
+            <a class="social-btn" href="https://x.com/disharm_project" target="_blank" rel="noopener" aria-label="DISHARM on X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="social-btn" href="https://join.slack.com/t/disharm-project/shared_invite/REPLACE_ME" target="_blank" rel="noopener" aria-label="DISHARM on Slack">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="2"></rect><rect x="13" y="3" width="8" height="8" rx="2"></rect><rect x="3" y="13" width="8" height="8" rx="2"></rect><rect x="13" y="13" width="8" height="8" rx="2"></rect></svg>
+            </a>
+            <a class="social-btn" href="https://bsky.app/profile/disharm-project.bsky.social" target="_blank" rel="noopener" aria-label="DISHARM on Bluesky">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="8" cy="12" rx="6" ry="4" transform="rotate(-25 8 12)"></ellipse><ellipse cx="16" cy="12" rx="6" ry="4" transform="rotate(25 16 12)"></ellipse></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav__group">
+            <h4>Site</h4>
+            <ul>
+              <li><a href="../../index.html">Home</a></li>
+              <li><a href="../../about.html">About</a></li>
+              <li><a href="../../publications.html">Publications</a></li>
+              <li><a href="../../press.html">Press</a></li>
+              <li><a href="../../hacking-safety/index.html">Hacking safety</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav__group">
+            <h4>Contact</h4>
+            <ul>
+              <li><a href="mailto:contact@REPLACE_ME.org">contact@REPLACE_ME.org</a></li>
+              <li>[Department / institution]</li>
+              <li>[City, country]</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-logos">
+        <p class="footer-logos__label">Funded / supported by</p>
+        <div class="footer-logos__row">
+          <div class="footer-logo-slot">Funder logo</div>
+          <div class="footer-logo-slot">Partner logo</div>
+          <div class="footer-logo-slot">Host institution logo</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> DISHARM project. All rights reserved.</p>
+        <p><a href="../../about.html">About this site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
