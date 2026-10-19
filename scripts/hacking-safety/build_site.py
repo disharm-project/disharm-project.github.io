@@ -190,6 +190,7 @@ def render_index_page(items, chrome, filtered=True):
       <div class="wrap">
         <span class="page-hero__kicker">Dataset</span>
         <h1 class="page-hero__title">{NAV_LABEL}</h1>
+        <p class="hs-warning" role="note"><strong>Trigger warning</strong> The posts below are unedited web pages from Common Crawl. They may contain offensive, explicit or disturbing material, including hate speech, sexual content, violence and discrimination. They are shown for research purposes only and do not reflect the views of the DISHARM project.</p>
         <p class="page-hero__lede">Web pages from the hacking safety dataset, rendered as posts.
           Sentences flagged by the classifier are <mark class="hs-mark">highlighted</mark>;
           those that at least one guardrail (Llama Guard, MD-Judge, Qwen3Guard) rated as not safe
