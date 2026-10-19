@@ -13,7 +13,7 @@ Writes into REPO_DIR/hacking-safety/:
 Only records with at most 35% of their sentences flagged are published
 (see keep()), unless --all is given; NNNNN is the record's index in the input JSON. Every page is noindex.
 
-The site header/nav and footer are copied from REPO_DIR/press.html so the
+The site header/nav and footer are copied from REPO_DIR/about.html so the
 section stays in sync with the rest of the site; styling lives in
 REPO_DIR/assets/css/style.css (".hs-" classes).
 """
@@ -32,8 +32,8 @@ NAV_LABEL = "Hacking safety"
 
 
 def site_chrome(repo):
-    """Return (head_links, header, footer) HTML taken from press.html."""
-    src = Path(repo, "press.html").read_text(encoding="utf-8")
+    """Return (head_links, header, footer) HTML taken from about.html."""
+    src = Path(repo, "about.html").read_text(encoding="utf-8")
     head = re.search(r'<link rel="icon".*?<link rel="stylesheet"[^>]*>', src, re.S).group(0)
     header = re.search(r'<a class="skip-link".*?</header>', src, re.S).group(0)
     footer = re.search(r'<footer class="site-footer">.*?</footer>\s*<script.*?</script>\s*<script>.*?</script>',

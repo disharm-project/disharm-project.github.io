@@ -11,7 +11,6 @@ repository directly.
 - `about.html` — the full About page (background, approach, funding), linked from
   the homepage About section.
 - `people.html` — the People page (team cards; copy a `.person-card` to add someone).
-- `press.html` — the Press page (media mentions, press kit contact).
 - `publications.html` — the full publication list with abstracts.
 - `assets/css/style.css` — all styling.
 - `assets/js/main.js` — mobile nav toggle + active-section highlighting.
@@ -42,9 +41,8 @@ Things to replace:
   homepage.
 - **About page** (`about.html`): background, methods, and funding.
 - **People page** (`people.html`): team intro and one `.person-card` per person.
-- **Press page** (`press.html`): media mentions and press contact.
-- **Social links**: LinkedIn, X, Substack, and Bluesky URLs appear in the nav and
-  footer of every page — update the `href` on each `.social-btn`.
+- **Social links**: the Substack URL appears in the nav and
+  footer of every page — update the `href` on the `.social-btn`.
 - **Footer**: the about blurb, contact email/address, and the funder/partner
   "logo slots" (`.footer-logo-slot` in each page's footer) — replace each slot's
   placeholder text with an `<img>` pointing at a logo in `assets/img/`.
