@@ -675,14 +675,14 @@ img {
 
 .footer-logo {
   display: block;
-  height: 3rem;
+  height: 2.25rem;
   width: auto;
   max-width: 100%;
 }
 
 /* ITU logo is white on a black JPG: screen blending drops the black box */
 .footer-logo--itu {
-  height: 1.6rem;
+  height: 1.2rem;
   mix-blend-mode: screen;
 }
 
