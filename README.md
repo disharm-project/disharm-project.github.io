@@ -41,7 +41,7 @@ Things to replace:
 - **About page** (`about.html`): background, methods, and funding.
 - **People page** (`people.html`): team intro and one `.person-card` per person.
 - **Press page** (`press.html`): media mentions and press contact.
-- **Social links**: LinkedIn, X, Slack, and Bluesky URLs appear in the nav and
+- **Social links**: LinkedIn, X, Substack, and Bluesky URLs appear in the nav and
   footer of every page — update the `href` on each `.social-btn`.
 - **Footer**: the about blurb, contact email/address, and the funder/partner
   "logo slots" (`.footer-logo-slot` in each page's footer) — replace each slot's
