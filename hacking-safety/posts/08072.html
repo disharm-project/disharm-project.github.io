@@ -60,7 +60,7 @@
         <h1 class="page-hero__title">Quadcopter can inspect damaged nuclear reactors without putting workers risk</h1>
         <p class="hs-post__source">engineering.nyu.edu &middot;
           <a href="https://engineering.nyu.edu/news/quadcopter-can-inspect-damaged-nuclear-reactors-without-putting-workers-risk" target="_blank" rel="noopener nofollow">https://engineering.nyu.edu/news/quadcopter-can-inspect-damaged-nuclear-reactors-without-putting-workers-risk</a></p>
-        <p class="hs-post__stats"><span class="hs-chip">1 of 8 sentences flagged</span></p>
+        <p class="hs-post__stats"><span class="hs-chip">1 of 8 sentences flagged</span> <a class="hs-chip hs-chip--unsafe" href="#guardrails">1 not safe per guardrails</a></p>
       </div>
     </section>
 
@@ -73,8 +73,15 @@
           <a class="btn btn--ghost" href="08073.html">Next &rarr;</a>
         </nav>
         <article class="hs-post__body">
-<p>Looking for News or Events? Tandon in the Media Venture Beat Inspecting damaged nuclear plants poses a unique challenge. Radiation inside one of the Fukushima Daiichi reactors was recorded at 73 sieverts, more than 7 times the fatal dose. <mark data-sent="3">(Ten sieverts would kill most people exposed to it within weeks.)</mark> That’s why researchers at the University of Pennsylvania’s GRASP Lab and New York University’s Tandon School of Engineering propose that robots undertake the job instead. … They describe an autonomous quadcopter designed to inspect the interior of hazardous sites. … The team’s solution comprises two parts: an autonomous system with state estimation, control, and mapping modules running on custom-designed hardware, and a map-based obstacle avoidance and navigation system. See more...</p>
+<p>Looking for News or Events? Tandon in the Media Venture Beat Inspecting damaged nuclear plants poses a unique challenge. Radiation inside one of the Fukushima Daiichi reactors was recorded at 73 sieverts, more than 7 times the fatal dose. <mark class="unsafe" id="s3" data-sent="3" title="Llama Guard: safe; MD-Judge: safe; Qwen3Guard: controversial (Violent)">(Ten sieverts would kill most people exposed to it within weeks.)</mark> That’s why researchers at the University of Pennsylvania’s GRASP Lab and New York University’s Tandon School of Engineering propose that robots undertake the job instead. … They describe an autonomous quadcopter designed to inspect the interior of hazardous sites. … The team’s solution comprises two parts: an autonomous system with state estimation, control, and mapping modules running on custom-designed hardware, and a map-based obstacle avoidance and navigation system. See more...</p>
         </article>
+<section id="guardrails" class="hs-guardrails">
+<h2>Guardrail verdicts</h2>
+<p>1 flagged sentence rated not safe by at least one guard (Llama Guard, MD-Judge, Qwen3Guard).</p>
+<ol>
+<li><a href="#s3">&ldquo;(Ten sieverts would kill most people exposed to it within weeks.)&rdquo;</a><div class="hs-verdicts"><span class="hs-verdict safe">Llama Guard: safe</span> <span class="hs-verdict safe">MD-Judge: safe</span> <span class="hs-verdict controversial">Qwen3Guard: controversial (Violent)</span></div></li>
+</ol>
+</section>
       </div>
     </section>
   </main>
