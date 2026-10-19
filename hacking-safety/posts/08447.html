@@ -75,7 +75,6 @@
         <article class="hs-post__body">
 <p>You can search for identifiers within the package. in-package search v0.2.0 A single hash algorithm. Size of digests (in bytes). Represents a running hash computation in a way suitable for appending inputs. empty is the hash of the empty string. feed t msg adds the information in msg to t. feed is analogous to appending: feed (feed t msg1) msg2 = feed t (Cstruct.append msg1 msg2). get t is the digest corresponding to t. Functions that operate on data stored in a single chunk. digest msg is the digest of msg. digest msg = get (feed empty msg) hmac ~key bytes is the authentication code for bytes under the secret key, generated using the standard HMAC construction over this hash algorithm. Functions that operate on arbitrary iterators. They can serve as a basis for other, more specialized aggregate hashing operations. <mark data-sent="13">These functions are a little faster than using feed directly.</mark> feedi t iter = (let r = ref t in iter (fun msg -&gt; r := feed !r msg); !r) digesti iter = feedi empty iter |&gt; get See hmac. Innovation. Community. Security.</p>
         </article>
-
       </div>
     </section>
   </main>

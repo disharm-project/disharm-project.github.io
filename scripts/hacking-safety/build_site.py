@@ -7,7 +7,7 @@ Usage:
 Writes into REPO_DIR/hacking-safety/:
     index.html            searchable, sortable list of the published posts
     posts/NNNNN.html      one blog-style page per record, flagged sentences in <mark>,
-                          guardrail verdicts for the not-safe ones (see add_guardrails.py)
+                          not-safe ones per the guardrails in red (see add_guardrails.py)
     random.html           redirects to a random published post
 
 Only records with at most 33% of their sentences flagged are published
@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
-from render_posts import render_body, render_guardrails, title_from_url
+from render_posts import render_body, title_from_url
 
 SECTION = "hacking-safety"
 NAV_LABEL = "Hacking safety"
@@ -97,7 +97,7 @@ def render_post_page(k, items, chrome):
     nf, ns = len(x.get("flagged", [])), len(x["sents"])
     guardrails = x.get("guardrails", [])
     nu = len(guardrails)
-    unsafe_chip = (f' <a class="hs-chip hs-chip--unsafe" href="#guardrails">{nu} not safe per guardrails</a>'
+    unsafe_chip = (f' <span class="hs-chip hs-chip--unsafe">{nu} not safe per guardrails</span>'
                    if nu else "")
     prev_link = (f'<a class="btn btn--ghost" href="{post_name(items[k - 1][0])}">&larr; Previous</a>'
                  if k > 0 else "")
@@ -124,7 +124,6 @@ def render_post_page(k, items, chrome):
         <article class="hs-post__body">
 {render_body(x["sents"], x.get("flagged", []), guardrails)}
         </article>
-{render_guardrails(x["sents"], guardrails, prefix="hs-").replace("<section", '<section id="guardrails"', 1)}
       </div>
     </section>"""
     return page(title, f"Post {i} of the hacking safety dataset, from {domain}.",

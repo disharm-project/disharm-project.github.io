@@ -1,7 +1,7 @@
 """Render each record of hacking_safety.json as a generic blog post (HTML),
 wrapping the sentences listed in `flagged` with <mark>. Sentences that the
 guardrails rated as not safe (the `guardrails` field, see add_guardrails.py)
-get <mark class="unsafe"> and are listed with their verdicts below the post.
+get <mark class="unsafe">, with each guard's verdict as a tooltip.
 
 Usage:
     python render_posts.py [input.json] [output.json] [--pages DIR]
@@ -34,18 +34,6 @@ article h1 { font:700 34px/1.25 -apple-system, Helvetica, Arial, sans-serif; mar
 article p { margin:0 0 1.2em; }
 mark { background:var(--mark); padding:0 2px; border-radius:2px; }
 mark.unsafe { background:var(--unsafe); box-shadow:inset 0 -2px 0 var(--unsafe-ink); }
-.guardrails { border-top:1px solid var(--rule); margin-top:40px; padding-top:8px;
-              font:15px/1.5 -apple-system, Helvetica, Arial, sans-serif; }
-.guardrails h2 { font-size:20px; margin:16px 0 4px; }
-.guardrails > p { color:var(--muted); margin:0 0 16px; }
-.guardrails ol { padding-left:1.4em; }
-.guardrails li { margin-bottom:16px; }
-.guardrails li > a { color:var(--fg); text-decoration:none; font-family:Georgia, serif; }
-.guardrails li > a:hover { text-decoration:underline; }
-.verdicts { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
-.verdict { font-size:12px; padding:2px 8px; border-radius:10px; border:1px solid var(--rule); color:var(--muted); }
-.verdict.unsafe { background:var(--unsafe); border-color:var(--unsafe-ink); color:var(--unsafe-ink); }
-.verdict.controversial { background:#fdebc8; border-color:#b7791f; color:#8a5a12; }
 footer { max-width:680px; margin:0 auto; padding:16px; border-top:1px solid var(--rule);
          font:13px -apple-system, Helvetica, Arial, sans-serif; color:var(--muted); }
 """
@@ -76,15 +64,14 @@ def verdict_text(name, v):
 
 def render_body(sents, flagged, guardrails=()):
     """Join sentences into paragraphs; a blank line inside a sentence
-    starts a new paragraph. Not-safe sentences get class="unsafe", an
-    id="sN" anchor and their guard verdicts as a tooltip."""
+    starts a new paragraph. Not-safe sentences get class="unsafe" and
+    their guard verdicts as a tooltip."""
     flagged = set(flagged)
     unsafe = {g["sent"]: g for g in guardrails}
     paragraphs, current = [], []
     for i, s in enumerate(sents):
         # blank lines inside a sentence become paragraph breaks; other whitespace collapses
         chunks = [" ".join(c.split()) for c in re.split(r"\n\s*\n", s)]
-        anchored = False
         for j, chunk in enumerate(chunks):
             if j > 0 and current:
                 paragraphs.append(current)
@@ -94,34 +81,13 @@ def render_body(sents, flagged, guardrails=()):
             text = html.escape(chunk)
             if i in unsafe:
                 tip = html.escape("; ".join(verdict_text(n, unsafe[i][n]) for n in GUARDS), quote=True)
-                anchor = "" if anchored else f' id="s{i}"'
-                anchored = True
-                text = f'<mark class="unsafe"{anchor} data-sent="{i}" title="{tip}">{text}</mark>'
+                text = f'<mark class="unsafe" data-sent="{i}" title="{tip}">{text}</mark>'
             elif i in flagged:
                 text = f'<mark data-sent="{i}">{text}</mark>'
             current.append(text)
     if current:
         paragraphs.append(current)
     return "\n".join(f"<p>{' '.join(p)}</p>" for p in paragraphs)
-
-
-def render_guardrails(sents, guardrails, prefix=""):
-    """List of the not-safe sentences with each guard's verdict; empty if none.
-    `prefix` is prepended to every class name (e.g. "hs-" on the DISHARM site)."""
-    if not guardrails:
-        return ""
-    items = []
-    for g in guardrails:
-        text = " ".join(sents[g["sent"]].split())
-        pills = " ".join(
-            f'<span class="{prefix}verdict {g[n]["label"]}">{html.escape(verdict_text(n, g[n]))}</span>'
-            for n in GUARDS)
-        items.append(f'<li><a href="#s{g["sent"]}">&ldquo;{html.escape(text)}&rdquo;</a>'
-                     f'<div class="{prefix}verdicts">{pills}</div></li>')
-    n = len(guardrails)
-    return (f'<section class="{prefix}guardrails">\n<h2>Guardrail verdicts</h2>\n'
-            f'<p>{n} flagged sentence{"s" if n != 1 else ""} rated not safe by at least one guard '
-            f'(Llama Guard, MD-Judge, Qwen3Guard).</p>\n<ol>\n' + "\n".join(items) + "\n</ol>\n</section>")
 
 
 def render_post(x):
@@ -144,7 +110,6 @@ def render_post(x):
 <h1>{title}</h1>
 <div class="meta">Source: <a href="{html.escape(url, quote=True)}">{html.escape(url)}</a></div>
 {body}
-{render_guardrails(x["sents"], guardrails)}
 </article>
 <footer>{len(x.get('flagged', []))} of {len(x['sents'])} sentences flagged &middot;
 {len(guardrails)} not safe according to the guardrails</footer>
