@@ -8,7 +8,9 @@ repository directly.
 
 - `index.html` — the one-page scrollable homepage: acronym + title hero, a short
   project presentation, a preview of recent publications, and the footer.
-- `about.html` — the About page (background, approach, funding, team).
+- `about.html` — the full About page (background, approach, funding), linked from
+  the homepage About section.
+- `people.html` — the People page (team cards; copy a `.person-card` to add someone).
 - `press.html` — the Press page (media mentions, press kit contact).
 - `publications.html` — the full publication list with abstracts.
 - `assets/css/style.css` — all styling.
@@ -36,7 +38,8 @@ Things to replace:
   authors, venues, abstracts, and PDF/DOI/BibTeX links. Keep the `id="pub-N"`
   anchors in `publications.html` in sync with the "Read abstract" links on the
   homepage.
-- **About page** (`about.html`): background, methods, funding, and team.
+- **About page** (`about.html`): background, methods, and funding.
+- **People page** (`people.html`): team intro and one `.person-card` per person.
 - **Press page** (`press.html`): media mentions and press contact.
 - **Social links**: LinkedIn, X, Slack, and Bluesky URLs appear in the nav and
   footer of every page — update the `href` on each `.social-btn`.
