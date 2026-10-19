@@ -10,34 +10,32 @@
 % @inproceedings = Conference paper, @unpublished or an arXiv eprint = Preprint, ...
 % The citation key becomes the anchor, e.g. publications.html#placeholder2026one
 
-@article{placeholder2026one,
-  title    = {[Publication title number one]},
-  author   = {One, Author and Two, Author and Three, Author},
-  journal  = {[Journal / venue name]},
-  year     = {2026},
-  abstract = {[Abstract placeholder: replace with the paper's actual abstract — the background, method, and main findings, typically 3-6 sentences.]}
+
+@preprint{stranisci2026epistemic,
+  title={Epistemic Injustice in Language Models: An Audit of Pretraining Filters and Guardrails},
+  author={Stranisci, Marco Antonio and Pranav, A and Damiano, Rossana and Hardmeier, Christian and Lauscher, Anne},
+  journal={arXiv preprint arXiv:2606.05936},
+  year={2026},
+  abstract={Modern language models rely on pretraining filters to remove undesirable content from training corpora and inference-time guardrails to suppress undesirable outputs during deployment. In this paper, we examine how these filtering and moderation decisions produce forms of epistemic erasure and reveal tensions both across automated systems and between these systems and human judgment. We audit four pretraining filters and three inference-time guardrails on Common Crawl sentences containing gender and regional-origin mentions, together with a manually annotated subset of 500 sentences. Our analysis shows that filtering and guardrail decisions are strongly associated with blocklist-based lexical cues, while frequently failing to flag content containing private information or explicit hate speech. At the same time, marginalized groups, particularly transgender people, women, and Central Americans, are significantly over-flagged across systems. Human annotators, by contrast, would retain 88.5\% of filter-flagged and 91.3\% of guardrail-flagged content, often recognizing representational harms arising from tensions of content removal that current systems fail to capture. Taken together, our findings document a form of epistemic erasure in which mentions of marginalized groups are disproportionately removed before pretraining and additionally suppressed again at inference time.}
 }
 
-@inproceedings{placeholder2025two,
-  title     = {[Publication title number two]},
-  author    = {One, Author and Two, Author},
-  booktitle = {[Conference name]},
-  year      = {2025},
-  abstract  = {[Abstract placeholder: replace with the paper's actual abstract — the background, method, and main findings, typically 3-6 sentences.]}
+@inproceedings{russo2026moral,
+  title        = {MoralTrajectories: Evaluating Moral Steerability in Large Language Models},
+  author       = {Russo, Daniel and Stranisci, Marco Antonio and Araque, Oscar and Guerini, Marco },
+  howpublished = {Findings of EMNLP 2026},
+  year         = {2026},
+  abstract     = {Large language models are increasingly deployed in contexts where contestedsocial and political values are at stake, yet we lack a systematic understanding of how their moral priors shape what they generate. We introduce MoralTrajectories, a benchmark for probing morally grounded generation across contentious political and social topics. The benchmark pairs questions from the AllSides Red Blue Translator with first-person belief statements operationalizing the six foundations of Moral Foundations Theory to construct, for each model and topic, a full \emph{moral trajectory}: seven responses spanning an unconstrained baseline and one condition per foundation. We evaluate eight instruction-tuned models across families and sizes using lexical and semantic similarity, distributional divergence, and token-level uncertainty analysis, supported by a human annotation study. Three findings emerge consistently: unconstrained models default to \textsc{care}-oriented language, attributable to the empathy-rewarding objectives of instruction tuning; moral prompting shifts generation in foundation-consistent ways, but the effect is predominantly surface-level; and steerability varies substantially across model families and topics. Together, these results suggest that current alignment training collapses moral diversity into a narrow register, and that recovering genuine moral plurality in generation remains an open challenge.
+}
 }
 
-@unpublished{placeholder2025three,
-  title        = {[Publication title number three]},
-  author       = {One, Author and Two, Author and Three, Author and Four, Author},
-  howpublished = {[Preprint server]},
-  year         = {2025},
-  abstract     = {[Abstract placeholder: replace with the paper's actual abstract — the background, method, and main findings, typically 3-6 sentences.]}
-}
+@inproceedings{stranisci2026they,
+  title={What are they filtering out? an experimental benchmark of filtering strategies for harm reduction in pretraining datasets},
+  author={Stranisci, Marco Antonio and Hardmeier, Christian},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  number={46},
+  pages={39303--39313},
+  year={2026},
+  abstract={Data filtering strategies are a crucial component to develop safe Large Language Models (LLM), since they support the removal of harmful contents from pretraining datasets. There is a lack of research on the actual impact of these strategies on vulnerable groups to discrimination, though, and their effectiveness has not been yet systematically addressed. In this paper we present a benchmark study of data filtering strategies for harm reduction aimed at providing a systematic evaluation on these approaches. We provide an overview 55 technical reports of English LMs and LLMs to identify the existing filtering strategies in literature and implement an experimental setting to test their impact against vulnerable groups. Our results show that the positive impact that strategies have in reducing harmful contents from documents has the side effect of increasing the underrepresentation of vulnerable groups to discrimination in datasets.}
 
-@article{placeholder2024four,
-  title    = {[Publication title number four]},
-  author   = {One, Author and Two, Author},
-  journal  = {[Journal / venue name]},
-  year     = {2024},
-  abstract = {[Abstract placeholder: replace with the paper's actual abstract — the background, method, and main findings, typically 3-6 sentences.]}
 }
