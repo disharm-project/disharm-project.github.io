@@ -665,26 +665,25 @@ img {
 .footer-logos__row {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-end;
   gap: 2.5rem;
 }
 
-.footer-logo-slot {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.75rem;
-  padding: 0 0.75rem;
-  border: 1px dashed rgba(255, 255, 255, 0.3);
-  border-radius: 0.35rem;
-  color: rgba(217, 213, 207, 0.55);
-  font-size: 0.75rem;
-  white-space: nowrap;
+.footer-logos__group .footer-logos__label {
+  margin-bottom: 0.75em;
 }
 
-.footer-logo-slot img {
-  height: 100%;
+.footer-logo {
+  display: block;
+  height: 3rem;
   width: auto;
+  max-width: 100%;
+}
+
+/* ITU logo is white on a black JPG: screen blending drops the black box */
+.footer-logo--itu {
+  height: 1.6rem;
+  mix-blend-mode: screen;
 }
 
 .footer-bottom {
