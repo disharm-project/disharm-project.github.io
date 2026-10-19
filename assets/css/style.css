@@ -204,11 +204,7 @@ img {
    ----------------------------------------------------------- */
 
 .hero {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 4rem 0 3rem;
+  padding: 5rem 0 3rem;
   background:
     radial-gradient(circle at 82% 18%, var(--color-accent-soft) 0%, transparent 55%),
     var(--color-bg);
@@ -280,6 +276,12 @@ img {
 
 .section {
   padding: 5.5rem 0;
+}
+
+/* The first section after a hero needs less top space. */
+.hero + .section,
+.page-hero + .section {
+  padding-top: 2.5rem;
 }
 
 .section--alt {
