@@ -10,12 +10,12 @@ The data files are not in this repository.
 - `render_posts.py` — standalone HTML pages for every record (local browsing);
   also provides the post-body rendering used by `build_site.py`.
 - `build_site.py` — writes `hacking-safety/` (index, one page per post, random redirect)
-  using the header/footer of `press.html`. By default only posts with at most 33% of
+  using the header/footer of `press.html`. By default only posts with at most 35% of
   their sentences flagged are published; `--all` publishes every post.
 
 From the folder holding the data:
 
 ```bash
 python add_guardrails.py merged_labels.jsonl 16_baseline.json hacking_safety.json
-python build_site.py path/to/disharm-project.github.io hacking_safety.json --all
+python build_site.py path/to/disharm-project.github.io hacking_safety.json   # add --all to skip the filter
 ```

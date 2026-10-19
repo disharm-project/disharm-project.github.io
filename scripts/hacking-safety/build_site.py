@@ -10,7 +10,7 @@ Writes into REPO_DIR/hacking-safety/:
                           not-safe ones per the guardrails in red (see add_guardrails.py)
     random.html           redirects to a random published post
 
-Only records with at most 33% of their sentences flagged are published
+Only records with at most 35% of their sentences flagged are published
 (see keep()), unless --all is given; NNNNN is the record's index in the input JSON. Every page is noindex.
 
 The site header/nav and footer are copied from REPO_DIR/press.html so the
@@ -84,8 +84,8 @@ def post_name(i):
 
 
 def keep(x):
-    """Publish a post only if at most 33% of its sentences are flagged."""
-    return 100 * len(x.get("flagged", [])) <= 33 * len(x["sents"])
+    """Publish a post only if at most 35% of its sentences are flagged."""
+    return 100 * len(x.get("flagged", [])) <= 35 * len(x["sents"])
 
 
 def render_post_page(k, items, chrome):
@@ -194,7 +194,7 @@ def render_index_page(items, chrome, filtered=True):
           Sentences flagged by the classifier are <mark class="hs-mark">highlighted</mark>;
           those that at least one guardrail (Llama Guard, MD-Judge, Qwen3Guard) rated as not safe
           are <mark class="hs-mark hs-mark--unsafe">marked in red</mark>.
-          {"Only pages with at most 33% of their sentences flagged are shown." if filtered else
+          {"Only pages with at most 35% of their sentences flagged are shown." if filtered else
            "All pages are shown, whatever their share of flagged sentences."}</p>
         <div class="hs-stats">
           <div><strong>{len(items):,}</strong><span>posts</span></div>
