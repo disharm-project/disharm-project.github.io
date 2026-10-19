@@ -380,6 +380,17 @@ img {
   margin-bottom: 1em;
 }
 
+.pub-list[data-pubs="recent"] .pub-card__abstract {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.pub-list__empty {
+  color: var(--color-ink-soft);
+}
+
 .pub-card__links {
   display: flex;
   flex-wrap: wrap;
