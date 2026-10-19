@@ -3,3 +3,5 @@
 
 # Ignore files created by editors/IDEs
 .vscode/
+
+__pycache__/
